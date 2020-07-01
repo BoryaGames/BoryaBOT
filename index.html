@@ -7,7 +7,7 @@ background-color: lightskyblue;
 </style>
 <script>
 function installBot() {
-location = "https://discord.com/api/oauth2/authorize?client_id=711514987851677717&permissions=8&redirect_uri=https%3A%2F%2Fboryagames.github.io%2FBoryaBOT%2F%3Fsuccess&scope=bot"
+location = "https://discord.com/api/oauth2/authorize?client_id=711514987851677717&permissions=8&redirect_uri=https%3A%2F%2Fboryagames.github.io%2FBoryaBOT%2F%3Fsuccess&response_type=code&scope=bot"
 }
 function toUtils() {
 
@@ -15,6 +15,10 @@ function toUtils() {
 window.onload = function() {
 if (location.search.substring(1).startsWith("success&code=")) {
 document.body.innerHTML = `<center>Спасибо за установку бота!)<br/><button onclick="main()">На главную</button></center>`
+} else {
+if (location.search.substring(1).startsWith("error")) {
+document.body.innerHTML = `<center>Эх, бота не установили(<br/><button onclick="main()">На главную</button></center>`
+} else {}
 }
 }
 function main() {
