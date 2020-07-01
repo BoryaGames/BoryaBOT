@@ -13,11 +13,11 @@ function toUtils() {
 
 }
 window.onload = function() {
-if (location.search.substring(1).startsWith("success&code=")) {
+if (location.search.substring(1).startsWith("success=&code=")) {
 document.body.innerHTML = `<center>Спасибо за установку бота!)<br/><button onclick="main()">На главную</button></center>`
 } else {
-if (location.search.substring(1).startsWith("error")) {
-document.body.innerHTML = `<center>Эх, бота не установили(<br/><button onclick="main()">На главную</button></center>`
+if (location.search.substring(1).startsWith("success=&error=access")) {
+document.body.innerHTML = `<center>Зачем отменили установку?((<br/><button onclick="main()">На главную</button></center>`
 } else {}
 }
 }
