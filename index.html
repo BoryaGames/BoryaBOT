@@ -1,0 +1,34 @@
+<html>
+<head>
+<style>
+body {
+background-color: lightskyblue;
+}
+</style>
+<script>
+function installBot() {
+
+}
+function toUtils() {
+
+}
+window.onload = function() {
+if (location.search.substring(1).startsWith("success&code=")) {
+document.body.innerHTML = `<center>Спасибо за установку бота!)<br/><button onclick="main()">На главную</button></center>`
+}
+}
+function main() {
+location = "index.html"
+}
+</script>
+</head>
+<body>
+<center>
+Добро пожаловать на сайт моего бота!
+<br/>
+<button onclick="installBot()">Установить бота</button>
+<br/>
+<button onclick="toUtils()">Дискорд утилиты</button>
+</center>
+</body>
+</html>
