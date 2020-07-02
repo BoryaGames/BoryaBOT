@@ -10,7 +10,7 @@ function installBot() {
 location = "https://discord.com/api/oauth2/authorize?client_id=711514987851677717&permissions=8&redirect_uri=https%3A%2F%2Fboryagames.github.io%2FBoryaBOT%2F%3Fsuccess&response_type=code&scope=bot"
 }
 function toUtils() {
-
+location = "index.html?utils"
 }
 window.onload = function() {
 if (location.search.substring(1).startsWith("success=&code=")) {
@@ -18,7 +18,11 @@ document.body.innerHTML = `<center>Спасибо за установку бот
 } else {
 if (location.search.substring(1).startsWith("success=&error=access")) {
 document.body.innerHTML = `<center>Зачем отменили установку?((<br/><button onclick="main()">На главную</button></center>`
+} else {
+if (location.search.substring(1).startsWith("utils")) {
+document.body.innerHTML = `<center>Утилиты:<br/><button onclick="location = 'spam_util.html'">Вебхук-спам</button><br/><button onclick="main()">На главную</button></center>`
 } else {}
+}
 }
 }
 function main() {
