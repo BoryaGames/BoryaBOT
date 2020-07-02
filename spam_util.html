@@ -62,13 +62,16 @@ heh = $;
 } catch (e) {
 document.querySelector('#warn').style.display = "block";
 document.querySelector('#warn').style.background = "Yellow";
-document.querySelector('#warn').innerHTML = "Проверьте соединение с интернетом!";
+document.querySelector('#warn').innerHTML = "РџСЂРѕРІРµСЂСЊС‚Рµ СЃРѕРµРґРёРЅРµРЅРёРµ СЃ РёРЅС‚РµСЂРЅРµС‚РѕРј!";
 stop = true;
 }
 if (!stop) {
 var cou = parseInt(document.querySelector('#count').value);
 var inter = parseInt(document.querySelector('#interval').value);
 var cou2 = 0;
+document.querySelector('#warn').style.display = "block";
+document.querySelector('#warn').style.background = "Lime";
+document.querySelector('#warn').innerHTML = "РћС‚РїСЂР°РІРєР°...";
 var ee = setInterval(function(){
 if (cou2 > cou) {
 clearInterval(ee);
@@ -193,32 +196,32 @@ setInterval(refresh,1);
 </head>
 <body>
 <center>
-<p id="link2">Ссылка:</p>
+<p id="link2">РЎСЃС‹Р»РєР°:</p>
 <br/>
 <input id="link" type="text" autocomplete="off">
 <br/>
 <br/>
-<p id="count2">Количество сообщений:</p>
+<p id="count2">РљРѕР»РёС‡РµСЃС‚РІРѕ СЃРѕРѕР±С‰РµРЅРёР№:</p>
 <br/>
 <input id="count" type="number">
 <br/>
-<input type="checkbox" id="nolimit"> - пока не закроешь сайт?
+<input type="checkbox" id="nolimit"> - РїРѕРєР° РЅРµ Р·Р°РєСЂРѕРµС€СЊ СЃР°Р№С‚?
 <br/>
 <br/>
-<p id="interval2">Интервал сообщений (в миллисекундах):</p>
+<p id="interval2">РРЅС‚РµСЂРІР°Р» СЃРѕРѕР±С‰РµРЅРёР№ (РІ РјРёР»Р»РёСЃРµРєСѓРЅРґР°С…):</p>
 <br/>
 <input id="interval" type="number">
 <br/>
 <br/>
-<p id="text2">Текст:</p>
+<p id="text2">РўРµРєСЃС‚:</p>
 <br/>
 <input id="text" type="text" autocomplete="off">
 <br/>
-<input type="checkbox" id="noping"> - отключить пинг в тексте?
+<input type="checkbox" id="noping"> - РѕС‚РєР»СЋС‡РёС‚СЊ РїРёРЅРі РІ С‚РµРєСЃС‚Рµ?
 <br/>
 <br/>
 <br/>
-<button onclick="spam()" id="spam" disabled>Запуск</button>
+<button onclick="spam()" id="spam" disabled>Р—Р°РїСѓСЃРє</button>
 <p id="warn"></p>
 </center>
 </body>
