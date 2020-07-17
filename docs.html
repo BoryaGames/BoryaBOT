@@ -1,0 +1,50 @@
+<html>
+<head>
+<style>
+</style>
+<script>
+var spec_mode = {"enabled":false,"permissions":[]};
+var commands = {"!!хелп":"Показывает список команд и что они делают, может использовать любой участник!","!!кик @кого":"Кикает @упомянутого пользователя, нужно право кикать людей!","!!бан @кого":"Банит @упомянутого пользователя, нужно право банить людей!"};
+var perms = {"!!хелп":"","!!кик @кого":"KICK_MEMBERS","!!бан @кого":"BAN_MEMBERS"};
+function hasPerm(perm) {
+if (perm == "") {
+return true;
+} else {
+for (var key in spec_mode.permissions) {
+if (spec_mode.permissions[key] == perm) {
+return true;
+}
+}
+return false;
+}
+}
+window.onload = function() {
+if (location.search.substring(1).startsWith("spec?")) {
+spec_mode.enabled = true;
+spec_mode.permissions = location.search.substring(1).substr(5).split(';');
+}
+document.body.innerHTML = `<p>Список команд, для просмотра описания команд нажмите на неё: (если Вы не знаете какие команды можете использовать, а какие нет введите на сервере !!dwp, перейдите по специальной ссылке сюда и красным будут подсвечиватся команды, которые Вы не можете использовать, а лаймовым, которые можете)</p><br/><br/>`;
+for (var key in commands) {
+if (!spec_mode.enabled) {
+document.body.innerHTML += `<p onclick="showText('${commands[key]}')">${key}</p><br/>`;
+} else {
+if (hasPerm(perms[key])) {
+document.body.innerHTML += `<p style="color: lime;" onclick="showText('${commands[key]}')">${key}</p><br/>`;
+} else {
+document.body.innerHTML += `<p style="color: red;" onclick="showText('${commands[key]}')">${key}</p><br/>`;
+}
+}
+}
+};
+function showText(text) {
+document.body.innerHTML = `${text}<br/><button onclick="main();">Закрыть</button>`;
+};
+function main() {
+window.onload();
+};
+</script>
+</head>
+<body>
+<noscript>С выключенным JavaScript-ом Вам тут не место!</noscript>
+</body>
+</html>
