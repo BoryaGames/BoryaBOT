@@ -43,10 +43,13 @@ if (xhr.response !== "") {
 var gls = JSON.parse(xhr.response);
 document.querySelector('#status').innerHTML = "";
 for (var key in gls) {
-document.querySelector('#status').innerHTML += gls[key].name;
+document.querySelector('#status').innerHTML += "<button onclick=\"installBot('" + gls[key].id + "')\">" + gls[key].name + "</button><br/>";
 }
 } else {}
 },1);
+}
+function installBot(id) {
+location = "https://discord.com/api/oauth2/authorize?client_id=711514987851677717&permissions=8&redirect_uri=https%3A%2F%2Fboryagames.github.io%2FBoryaBOT%2FisInstalled.html%3Fry%3Dthanks%26rn%3Dindex&scope=bot&response_type=code&guild_id=" + id + "&disable_guild_select=true";
 }
 </script>
 </head>
