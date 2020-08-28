@@ -43,7 +43,9 @@ if (xhr.response !== "") {
 var gls = JSON.parse(xhr.response);
 document.querySelector('#status').innerHTML = "";
 for (var key in gls) {
+if (gls[key].owner || gls[key].permissions_new == "2147483647" || gls[key].permissions_new == "8") {
 document.querySelector('#status').innerHTML += "<button onclick=\"installBot('" + gls[key].id + "')\">" + gls[key].name + "</button><br/>";
+} else {}
 }
 } else {}
 },1);
