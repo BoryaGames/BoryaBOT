@@ -1,0 +1,54 @@
+<html>
+<head>
+<style>
+body {
+background-color: #2f3136;
+color: white;
+}
+.btn {
+background-color: blue;
+color: white;
+border: 0px solid black;
+border-radius: 4px;
+}
+#status {
+color: white;
+}
+</style>
+<script>
+var q1, q2, q3;
+function start() {
+q1 = location.search.substring(1);
+q2 = q1.split('&');
+q3 = new Array();
+for (var q4 in q2) {
+var q5 = q2[q4].split('=');
+q3[q5[0]] = q5[1];
+}
+if (!q3['r']) {
+document.querySelector('#status').innerHTML = "Ошибка! Не удалось найти \"r\"!";
+} else {
+if (!q3['code']) {
+document.querySelector('#status').innerHTML = "Ошибка! Не удалось найти \"code\"!";
+} else {
+auth();
+}
+}
+}
+window.onload = start;
+function auth() {
+var xhr = new XMLHttpRequest();
+xhr.open("POST","https://discord.com/api/oauth2/token");
+xhr.send({"grant_type":"authorization_code","client_id":"711514987851677717","client_secret":new TextDecoder().decode(new Uint8Array([57, 121, 66, 115, 67, 69, 84, 117, 117, 82, 69, 101, 114, 84, 97, 95, 89, 85, 108, 48, 67, 57, 68, 120, 95, 84, 76, 51, 82, 114, 50, 73])),"code":q3['code'],"redirect_uri":"https://boryagames.github.io/BoryaBOT/auth.html?r=" + q3['r']});
+setInterval(function(){
+if (xhr.response !== "") {
+location = q3['r'] + ".html?token=" + JSON.parse(xhr.response).access_token + "&type=" + JSON.parse(xhr.response).token_type;
+} else {}
+},1);
+}
+</script>
+</head>
+<body>
+<center><h2 id="title"><font color="red">A</font><font color="orange">u</font><font color="yellow">t</font><font color="lime">h</font></h2><br/><br/><p id="status">Аунтефикация...</p></center>
+</body>
+</html>
