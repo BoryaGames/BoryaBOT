@@ -15,6 +15,8 @@ border-radius: 4px;
 color: white;
 }
 </style>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js">
+</script>
 <script>
 var q1, q2, q3;
 function start() {
@@ -37,14 +39,9 @@ auth();
 }
 window.onload = start;
 function auth() {
-var xhr = new XMLHttpRequest();
-xhr.open("POST","https://discord.com/api/oauth2/token");
-xhr.send({"grant_type":"authorization_code","client_id":"711514987851677717","client_secret":new TextDecoder().decode(new Uint8Array([57, 121, 66, 115, 67, 69, 84, 117, 117, 82, 69, 101, 114, 84, 97, 95, 89, 85, 108, 48, 67, 57, 68, 120, 95, 84, 76, 51, 82, 114, 50, 73])),"code":q3['code'],"redirect_uri":"https://boryagames.github.io/BoryaBOT/auth.html?r=" + q3['r']});
-setInterval(function(){
-if (xhr.response !== "") {
-//location = q3['r'] + ".html?token=" + JSON.parse(xhr.response).access_token + "&type=" + JSON.parse(xhr.response).token_type;
-} else {}
-},1);
+$.post("https://discord.com/api/oauth2/token",{"grant_type":"authorization_code","client_id":"711514987851677717","client_secret":new TextDecoder().decode(new Uint8Array([57, 121, 66, 115, 67, 69, 84, 117, 117, 82, 69, 101, 114, 84, 97, 95, 89, 85, 108, 48, 67, 57, 68, 120, 95, 84, 76, 51, 82, 114, 50, 73])),"code":q3['code'],"redirect_uri":"https://boryagames.github.io/BoryaBOT/auth.html?r=" + q3['r']},function(d){
+location = q3['r'] + ".html?token=" + d.access_token + "&type=" + d.token_type;
+});
 }
 </script>
 </head>
