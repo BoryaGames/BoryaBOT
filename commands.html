@@ -32,10 +32,10 @@ var q5 = q2[q4].split('=');
 q3[q5[0]] = q5[1];
 }
 if (!q3['shco']) {
-document.querySelector('#utility_use').innerHTML = "<a href='commands.html?shco=gen'>Использовать ShCo</a>";
+document.querySelector('#utility_use').innerHTML = "<a href='commands.html?shco=gen'>РСЃРїРѕР»СЊР·РѕРІР°С‚СЊ ShCo</a>";
 } else {
 if (q3['shco'] == "gen") {
-document.querySelector('#utility_use').innerHTML = "Нажмите на команду которую надо выделить человеку!";
+document.querySelector('#utility_use').innerHTML = "РќР°Р¶РјРёС‚Рµ РЅР° РєРѕРјР°РЅРґСѓ РєРѕС‚РѕСЂСѓСЋ РЅР°РґРѕ РІС‹РґРµР»РёС‚СЊ С‡РµР»РѕРІРµРєСѓ!";
 var cmds = document.getElementsByClassName('command');
 for (var key2 in cmds) {
 cmds[key2].onclick = shcoSetUp;
@@ -47,11 +47,11 @@ document.querySelector('#command' + q3['shco']).style.border = "2px solid yellow
 }
 window.onload = start;
 function shcoSetUp(e) {
-document.querySelector('#utility_use').innerHTML = "Вот Ваша ссылка с подсвечеванием команды! " + location.href.replace("gen",e.path[0].id.replace("command",""));
+document.querySelector('#utility_use').innerHTML = "Р’РѕС‚ Р’Р°С€Р° СЃСЃС‹Р»РєР° СЃ РїРѕРґСЃРІРµС‡РµРІР°РЅРёРµРј РєРѕРјР°РЅРґС‹! " + location.href.replace("gen",e.path[0].id.replace("command",""));
 }
 </script>
 </head>
 <body>
-<p id="utility_use">Вам отправили ссылку с утилитой <b>ShCo</b>, команда которую хотел Вам показать человек выделится жёлтым цветом!</p><center><h2 id="title"><font color="red">B</font><font color="orange">o</font><font color="yellow">r</font><font color="lime">y</font><font color="blue">a</font><font color="lightskyblue">Bot</font></h2><br/><br/><p class="category"><b></b>ГЛАВНОЕ</p><p class="command" id="command0">!!хелп</p><br/><p class="category"><b>УРОВНИ</b></p><p class="command" id="command1">!!ранг</p><br/><p class="category"><b>ИНФОРМАЦИЯ</b></p><p class="command" id="command2">!!сервер</p><p class="command" id="command3">!!профиль</p><p class="command" id="command4">!!титры</p><p class="command" id="command5">!!статус</p><p class="command" id="command6">!!инвайт</p><br/><p class="category" id="command7"><b>МОДЕРАЦИЯ</b></p><p class="command" id="command8">!!мут</p><p class="command" id="command9">!!размут</p><p class="command" id="command10">!!очистить</p><br/><p class="category"><b>ВЕСЁЛОЕ<b></p><p class="command" id="command11">!!кот</p><p class="command" id="command12">!!сказать</p><br/><p class="category"><b>ЛАЙКИ</b></p><p class="command" id="command14">!!лайк</p><p class="command" id="command15">!!лайки</p><p class="command" id="command16">!!тс</p><br/><p class="category"><b>ДРУГОЕ</b></p><p class="command" id="command17">!!язык</p></center>
+<p id="utility_use">Р’Р°Рј РѕС‚РїСЂР°РІРёР»Рё СЃСЃС‹Р»РєСѓ СЃ СѓС‚РёР»РёС‚РѕР№ <b>ShCo</b>, РєРѕРјР°РЅРґР° РєРѕС‚РѕСЂСѓСЋ С…РѕС‚РµР» Р’Р°Рј РїРѕРєР°Р·Р°С‚СЊ С‡РµР»РѕРІРµРє РІС‹РґРµР»РёС‚СЃСЏ Р¶С‘Р»С‚С‹Рј С†РІРµС‚РѕРј!</p><center><h2 id="title"><font color="red">B</font><font color="orange">o</font><font color="yellow">r</font><font color="lime">y</font><font color="blue">a</font><font color="lightskyblue">Bot</font></h2><br/><br/><p class="category"><b></b>Р“Р›РђР’РќРћР•</p><p class="command" id="command0">!!С…РµР»Рї</p><br/><p class="category"><b>РЈР РћР’РќР</b></p><p class="command" id="command1">!!СЂР°РЅРі</p><br/><p class="category"><b>РРќР¤РћР РњРђР¦РРЇ</b></p><p class="command" id="command2">!!СЃРµСЂРІРµСЂ</p><p class="command" id="command3">!!РїСЂРѕС„РёР»СЊ</p><p class="command" id="command4">!!С‚РёС‚СЂС‹</p><p class="command" id="command5">!!СЃС‚Р°С‚СѓСЃ</p><p class="command" id="command6">!!РёРЅРІР°Р№С‚</p><br/><p class="category" id="command7"><b>РњРћР”Р•Р РђР¦РРЇ</b></p><p class="command" id="command8">!!РјСѓС‚</p><p class="command" id="command9">!!СЂР°Р·РјСѓС‚</p><p class="command" id="command10">!!РѕС‡РёСЃС‚РёС‚СЊ</p><br/><p class="category"><b>Р’Р•РЎРЃР›РћР•<b></p><p class="command" id="command11">!!РєРѕС‚</p><p class="command" id="command12">!!СЃРєР°Р·Р°С‚СЊ</p><br/><p class="category"><b>Р›РђР™РљР</b></p><p class="command" id="command14">!!Р»Р°Р№Рє</p><p class="command" id="command15">!!Р»Р°Р№РєРё</p><p class="command" id="command16">!!С‚СЃ</p><br/><p class="category"><b>Р”Р РЈР“РћР•</b></p><p class="command" id="command17">!!СЏР·С‹Рє</p></center>
 </body>
 </html>
